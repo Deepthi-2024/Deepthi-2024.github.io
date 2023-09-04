@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <style>
+ .container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.input-group {
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+}
+
+input {
+    width: 100%;
+    padding: 5px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #2e455e;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+    </style>
+</head>
+<body bgcolor="lightblue">
+    <div class="container">
+        <h1>Temperature Converter</h1>
+        <hr color="black">
+        <br>
+        <div class="input-group">
+            <label for="celsius">Celsius</label>
+            <input type="number" id="celsius" placeholder="Enter temperature in Celsius">
+        </div>
+        <div class="input-group">
+            <label for="fahrenheit">Fahrenheit</label>
+            <input type="number" id="fahrenheit" placeholder="Enter temperature in Fahrenheit">
+        </div>
+        <fieldset>
+        <button onclick="convertCelsiusToFahrenheit()">Convert into fahrenheit</button>
+        <br>
+        <button onclick="convertFahrenheitToCelsius()">Convert into celsius</button>
+        </fieldset>
+    </div>
+
+    <!-- <script src="script.js"></script> -->
+    <script>
+        function convertCelsiusToFahrenheit() {
+    var celsiusInput = document.getElementById("celsius");
+    var fahrenheitInput = document.getElementById("fahrenheit");
+
+    if (celsiusInput.value == "") {
+        alert("Please enter a value in Celsius.");
+        return;
+    }
+
+    var celsius = parseFloat(celsiusInput.value);
+    var fahrenheit = (celsius * 9/5) + 32;
+    fahrenheitInput.value = fahrenheit.toFixed(2);
+}
+
+function convertFahrenheitToCelsius() {
+    var celsiusInput = document.getElementById("celsius");
+    var fahrenheitInput = document.getElementById("fahrenheit");
+
+    if (fahrenheitInput.value == "") {
+        alert("Please enter a value in Fahrenheit.");
+        return;
+    }
+
+    var fahrenheit = parseFloat(fahrenheitInput.value);
+    var celsius = (fahrenheit - 32) * 5/9;
+    celsiusInput.value = celsius.toFixed(2);
+}
+
+    </script>
+</body>
+</html>
